@@ -2,14 +2,14 @@ const sequelize = require("../config/database")
 
 const {DataTypes } = require("sequelize")
 
-const Veiculo = sequelize.define('Veiculo',{
+const Veiculo = sequelize.define('Veiculos',{
     placa:{
         type:DataTypes.STRING,
-        alloNull: false
+        allowNull: false
     },
     modelo:{
         type:DataTypes.STRING,
-        alloNull: false
+        allowNull: false
     },
     ano:{
         type:DataTypes.INTEGER,
@@ -17,19 +17,19 @@ const Veiculo = sequelize.define('Veiculo',{
             min:1901,
             max:2155
         },
-        alloNull: false
+        allowNull: false
     },
     cor:{
         type:DataTypes.STRING,
-        alloNull: false
+        allowNull: false
     },
     preco:{
         type:DataTypes.DECIMAL(10,2),
-        alloNull: false
+        allowNull: false
     },
     linkImagem:{
         type:DataTypes.STRING,
-        alloNull: false
+        allowNull: false
     }
 })
 
