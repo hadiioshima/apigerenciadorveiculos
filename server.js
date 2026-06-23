@@ -12,9 +12,18 @@ app.get("/", (req, res) => {
 app.post("/veiculos", async (req, res) => {
     try {
         const { placa, modelo, ano, cor, preco, linkImagem } = req.body;
+        
+        const existeplaca=await Veiculo.findOne({where :{placa: placa}})
+        if (existeplaca){ 
+            return res.status(409).json({
+                mensagem: "esta placa ja existe"
+            });
+        }
+
         const veiculo = await Veiculo.create({
             placa, modelo, ano, cor, preco, linkImagem
         });
+        
         res.status(201).json({
             mensagem: "Veiculo inserido com sucesso",
             veiculo

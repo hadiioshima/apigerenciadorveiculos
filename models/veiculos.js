@@ -5,7 +5,8 @@ const {DataTypes } = require("sequelize")
 const Veiculo = sequelize.define('Veiculos',{
     placa:{
         type:DataTypes.STRING,
-        allowNull: false
+        allowNull: false,
+        unique: true
     },
     modelo:{
         type:DataTypes.STRING,
